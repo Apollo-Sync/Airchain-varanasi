@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f6da7cac-3ee4-4b5a-b641-cede6199a1f8)# Airchain-varanasi
+# Airchain-varanasi
 **Unjail node**
 wallet : change your wallet name
 keyring-backend file: change your backend file
