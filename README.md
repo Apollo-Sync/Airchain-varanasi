@@ -28,7 +28,13 @@ junctiond init <your-moniker> --chain-id varanasi-1 --default-denom uamf
 ```
 **Download genesis file**
 ```
-wget -O $HOME/.junctiond/config/genesis.json https://server-3.itrocket.net/testnet/airchains/genesis.json
+wget -O $HOME/.junctiond/config/genesis.json https://raw.githubusercontent.com/Apollo-Sync/Airchain-varanasi/refs/heads/main/genesis.json
+```
+
+**add peer to file config**
+```
+PEERS="f5de13c155a191dddd84f6605e04d1c726539e62@152.53.125.167:26656,97027438ed3960132e22d39f343c2158ae7d749d@167.235.14.83:11956,491b207473ce92a8449af71954668f15ec492f16@37.221.198.137:26656,ad40b693a907181cad7f9db73ae7590206418d5e@65.109.84.33:26756,dd56c40aaf17f2d85debdce58fdd139e66a3d528@65.21.192.60:26656,79f26210777e84efb600bf776c32615a72675d9f@airchains-testnet-rpc.itrocket.net:19656,d4fd89f3e5b96be9c1ebf86fb5f3d5dd4059332f@5.9.87.231:36656,b107bf75ca12c4f5fa544390e27f8104b13c7f1b@airchains-testnet-rpc.stakerhouse.com:13756,97027438ed3960132e22d39f343c2158ae7d749d@rpc.airchains.aknodes.net:11956,3039c0c3ba5f12ffe632e84706b52e960f5da595@65.21.202.124:24656,fa83cc2c8ecc7625454b202368b9c7a366bddb91@116.202.150.231:26656,0b9bc2f3fc252e4c087ed495bdb43a372703fb8c@116.202.210.177:26656,5510914e1271930d8f21352e1d887c5e239f4041@144.76.106.228:26656,c0f3abcd838aeb72f6c7a1c817407bfe021547f3@135.181.139.249:26656,029c4e417a43e902575484af0076f1bcd4f664a6@65.108.199.62:29656,ca449bd16b6cfa4e4d6e06fb5eea9a049d58cdac@94.130.239.53:17656,b5d898c94fa206c0eeb130134299c8c4985faec8@65.21.85.184:26656,60cdaad35b5c203fc2c95af04226f4663128775c@148.251.235.130:24656,bb3560a4e8314317259d9a2c6bd7402111d38a1b@149.50.101.137:12356"
+sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peers = \"$PEERS\"/}" $HOME/.junctiond/config/config.toml
 ```
 
 # Unjail node 
