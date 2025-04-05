@@ -17,6 +17,20 @@ go version  # Verify installation
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
 rustc --version  # Verify installation  
 ```
+Choose the default installation (option 1) when prompted
+
+**Install & Initialize the Node**
+```
+wget https://github.com/airchains-network/junction/releases/download/v0.3.1/junctiond-linux-amd64  
+chmod +x junctiond-linux-amd64  
+mv junctiond-linux-amd64 /usr/local/bin/junctiond  
+junctiond init <your-moniker> --chain-id varanasi-1 --default-denom uamf
+```
+**Download genesis file**
+```
+wget -O $HOME/.junctiond/config/genesis.json https://server-3.itrocket.net/testnet/airchains/genesis.json
+```
+
 # Unjail node 
 
 wallet : change your wallet name
