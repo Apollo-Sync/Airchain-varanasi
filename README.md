@@ -37,7 +37,7 @@ wget -O $HOME/.junctiond/config/genesis.json https://raw.githubusercontent.com/A
 
 **Download Addrbook file**
 ```
-wget -O $HOME/.junctiond/config/genesis.json https://raw.githubusercontent.com/Apollo-Sync/Airchain-varanasi/refs/heads/main/addrbook.json
+wget -O $HOME/.junctiond/config/addrbook.json https://raw.githubusercontent.com/Apollo-Sync/Airchain-varanasi/refs/heads/main/addrbook.json
 ```
 
 
