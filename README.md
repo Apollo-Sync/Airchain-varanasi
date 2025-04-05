@@ -77,6 +77,15 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable junctiond
 ```
+**Start node**
+```
+sudo systemctl start junctiond
+```
+
+**check log**
+```
+sudo journalctl -u junctiond -fo cat
+```
 
 ====================================================================================================================================================================================
 # Unjail node
