@@ -50,24 +50,25 @@ sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peer
 **Create service**
 ```
 sudo tee /etc/systemd/system/junctiond.service > /dev/null << EOF
+
 [Unit]
-Description=junction node service
-After=network-online.target
+Description=Junctiond Daemon
+#After=network.target
+StartLimitInterval=350
+StartLimitBurst=10
 
 [Service]
-User=$USER
-ExecStart=$(which cosmovisor) run start
-Restart=on-failure
-RestartSec=10
-LimitNOFILE=65535
-Environment="DAEMON_HOME=$HOME/.junctiond"
-Environment="DAEMON_NAME=junctiond"
-Environment="UNSAFE_SKIP_BACKUP=true"
-Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$HOME/.junctiond/cosmovisor/current/bin"
+Type=simple
+User=root
+ExecStart=/usr/local/bin/junctiond start
+Restart=on-abort
+RestartSec=30
 
 [Install]
 WantedBy=multi-user.target
-EOF
+
+[Service]
+LimitNOFILE=1048576
 ```
 
 **Reload + enbale**
