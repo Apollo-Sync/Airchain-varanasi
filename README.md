@@ -69,6 +69,7 @@ WantedBy=multi-user.target
 
 [Service]
 LimitNOFILE=1048576
+EOF
 ```
 
 **Reload + enbale**
