@@ -1,3 +1,22 @@
+# Install node
+**Build-Essential and jq Installation**
+```
+sudo apt update && sudo apt install -y build-essential jq
+```
+**Go Installation (v1.22+)**
+```
+wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz  
+sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz  
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc  
+source ~/.bashrc  
+go version  # Verify installation  
+```
+
+**Rust Installation (v1.80+)**
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
+rustc --version  # Verify installation  
+```
 # Unjail node 
 
 wallet : change your wallet name
