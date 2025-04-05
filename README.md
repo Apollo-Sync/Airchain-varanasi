@@ -102,7 +102,7 @@ curl https://server-3.itrocket.net/testnet/airchains/airchains_2025-04-05_212729
 mv $HOME/.junctiond/priv_validator_state.json.backup $HOME/.junctiond/data/priv_validator_state.json
 sudo systemctl restart junctiond && sudo journalctl -u junctiond -f
 ```
-
+====================================================================================================================================================================================
 # Unjail node
 
 wallet : change your wallet name
