@@ -22,10 +22,14 @@ Choose the default installation (option 1) when prompted
 **Install & Initialize the Node**
 ```
 wget https://github.com/airchains-network/junction/releases/download/v0.3.1/junctiond-linux-amd64  
-chmod +x junctiond-linux-amd64  
+chmod +x junctiond-linux-amd64
+```
+
+```
 mv junctiond-linux-amd64 /usr/local/bin/junctiond  
 junctiond init <your-moniker> --chain-id varanasi-1 --default-denom uamf
 ```
+
 **Download genesis file**
 ```
 wget -O $HOME/.junctiond/config/genesis.json https://raw.githubusercontent.com/Apollo-Sync/Airchain-varanasi/refs/heads/main/genesis.json
@@ -37,7 +41,7 @@ PEERS="f5de13c155a191dddd84f6605e04d1c726539e62@152.53.125.167:26656,97027438ed3
 sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peers = \"$PEERS\"/}" $HOME/.junctiond/config/config.toml
 ```
 
-# Unjail node 
+# Unjail node
 
 wallet : change your wallet name
 
