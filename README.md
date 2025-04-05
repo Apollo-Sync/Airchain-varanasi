@@ -41,6 +41,29 @@ PEERS="f5de13c155a191dddd84f6605e04d1c726539e62@152.53.125.167:26656,97027438ed3
 sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peers = \"$PEERS\"/}" $HOME/.junctiond/config/config.toml
 ```
 
+**Create service**
+```
+sudo tee /etc/systemd/system/junctiond.service > /dev/null << EOF
+[Unit]
+Description=junction node service
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=$(which cosmovisor) run start
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65535
+Environment="DAEMON_HOME=$HOME/.junctiond"
+Environment="DAEMON_NAME=junctiond"
+Environment="UNSAFE_SKIP_BACKUP=true"
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$HOME/.junctiond/cosmovisor/current/bin"
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+====================================================================================================================================================================================
 # Unjail node
 
 wallet : change your wallet name
