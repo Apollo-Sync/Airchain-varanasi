@@ -86,8 +86,23 @@ sudo systemctl start junctiond
 ```
 sudo journalctl -u junctiond -fo cat
 ```
-
 ====================================================================================================================================================================================
+# SNAPSHOT
+
+```
+sudo apt update
+sudo apt install lz4
+```
+
+```
+sudo systemctl stop junctiond
+cp $HOME/.junctiond/data/priv_validator_state.json $HOME/.junctiond/priv_validator_state.json.backup
+rm -rf $HOME/.junctiond/data
+curl https://server-3.itrocket.net/testnet/airchains/airchains_2025-04-05_212729_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junctiond
+mv $HOME/.junctiond/priv_validator_state.json.backup $HOME/.junctiond/data/priv_validator_state.json
+sudo systemctl restart junctiond && sudo journalctl -u junctiond -f
+```
+
 # Unjail node
 
 wallet : change your wallet name
