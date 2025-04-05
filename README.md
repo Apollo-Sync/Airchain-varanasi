@@ -63,6 +63,13 @@ Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 WantedBy=multi-user.target
 EOF
 ```
+
+**Reload + enbale**
+```
+sudo systemctl daemon-reload
+sudo systemctl enable junctiond
+```
+
 ====================================================================================================================================================================================
 # Unjail node
 
