@@ -21,7 +21,7 @@ Choose the default installation (option 1) when prompted
 
 **Install & Initialize the Node**
 ```
-wget https://github.com/airchains-network/junction/releases/download/v0.3.1/junctiond-linux-amd64  
+wget https://github.com/airchains-network/junction/releases/download/v0.3.2/junctiond-linux-amd64  
 chmod +x junctiond-linux-amd64
 ```
 
